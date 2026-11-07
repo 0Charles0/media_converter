@@ -38,7 +38,7 @@ class MediaConverterApp(ctk.CTk, TkinterDnD.DnDWrapper):
 
         self.title("媒体格式转换器")
         self.geometry("1000x720")
-        self.minsize(900, 660)
+        self.minsize(900, 680)
 
         self._font = ctk.CTkFont(family=FONT, size=13)
         self._font_small = ctk.CTkFont(family=FONT, size=12)
@@ -87,18 +87,17 @@ class MediaConverterApp(ctk.CTk, TkinterDnD.DnDWrapper):
 
         # 拖拽区
         drop = ctk.CTkFrame(self, fg_color=BG_PANEL, border_width=2,
-                            border_color=ACCENT, corner_radius=16, height=112)
+                            border_color=ACCENT, corner_radius=16)
         drop.grid(row=1, column=0, sticky="ew", padx=24, pady=(12, 10))
-        drop.grid_propagate(False)
         drop.grid_columnconfigure(0, weight=1)
         ctk.CTkLabel(drop, text="将文件拖拽到此处", font=ctk.CTkFont(
             family=FONT, size=16), anchor="center").grid(
-            row=0, column=0, pady=(20, 2))
+            row=0, column=0, pady=(16, 2))
         ctk.CTkLabel(drop, text="支持常见图片、音频、视频文件",
                      font=self._font_small, text_color=GRAY).grid(
-            row=1, column=0, pady=(0, 14))
+            row=1, column=0, pady=(0, 12))
         btns = ctk.CTkFrame(drop, fg_color="transparent")
-        btns.grid(row=2, column=0, pady=(0, 18))
+        btns.grid(row=2, column=0, pady=(0, 16))
         ctk.CTkButton(btns, text="添加文件", width=120, height=34,
                       font=self._font, command=self._pick_files).pack(
             side="left", padx=6)
@@ -157,7 +156,7 @@ class MediaConverterApp(ctk.CTk, TkinterDnD.DnDWrapper):
                      anchor="w").grid(row=0, column=0, sticky="w", padx=18, pady=(16, 6))
 
         self._chip_frame = ctk.CTkScrollableFrame(
-            card, fg_color="transparent", height=120)
+            card, fg_color="transparent", height=110)
         self._chip_frame.grid(row=1, column=0, sticky="nsew", padx=12, pady=(0, 8))
         self._chip_frame.grid_columnconfigure((0, 1, 2, 3), weight=1)
 
